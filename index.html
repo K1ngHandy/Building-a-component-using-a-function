@@ -3,7 +3,8 @@
 
 <body>
   <h1>Practice Problems Webpage</h1>
-  <p>All your solutions for this set of practice problems are located in the Replit console.  Please open the console by clicking the wrench icon near the top-right corner of this browser.
+  <p>All your solutions for this set of practice problems are located in the Replit console. Please open the console by
+    clicking the wrench icon near the top-right corner of this browser.
   </p>
   <script>
     /* 
@@ -11,42 +12,79 @@
     
 
     */
-   
-    //ENTER YOUR CODE HERE
-     
+
+    function buttonMaker(str, clickHandler) {
+      const button = document.createElement('button');
+      str ? button.innerText = `${str}` : button.innerText = "Click Me!";
+      if (clickHandler) {
+        button.addEventListener('click', clickHandler);
+        console.log('Button Clicked!');
+      }
+      document.querySelector('h1').insertAdjacentElement('afterend', button);
+    };
+    buttonMaker();
+
     /* 
     PROBLEM 2: Write a function component called createCard that generates an HTML card element. The function should take three parameters: title (a string) representing the card title, description (a string) representing the card description, and imageUrl (a string) representing the URL of the image to be displayed in the card. Once you write the function, call it with the following parameters:
 
     createCard('Card Title', 'This is a description of the card.', 'https://example.com/image.jpg');
     */
 
-    //ENTER YOUR CODE HERE 
+    function createCard(cardTitle, description, imageUrl) {
+      const card = document.createElement('div');
+      const title = document.createElement('h1');
+      const subtitle = document.createElement('h3');
+      const url = document.createElement('a');
+
+      title.innerText = `${cardTitle}`;
+      subtitle.innerText = `${description}`;
+      url.setAttribute('href', `${imageUrl}`);
+      url.innerText = `${imageUrl}`;
+
+      card.insertAdjacentElement('beforeend', title);
+      card.insertAdjacentElement('beforeend', subtitle);
+      card.insertAdjacentElement('beforeend', url);
+
+      card.style.border = '2px solid darkcyan';
+      card.style.padding = '0 20px 20px 20px';
+      card.style.marginTop = '10px';
+
+      document.querySelector('p').insertAdjacentElement('beforeend', card);
+    }
+    createCard('Card Title', 'This is a description of the card.', 'https://example.com/image.jpg');
+
+    /* 
+   PROBLEM 3: Create a function component called toggleVisibility that toggles the visibility of an HTML element. The function should take the element's id as its only parameter. If the element is currently visible, the function should hide it; if it is hidden, the function should make it visible.
+   */
+
+    function toggleVisibility(id) {
+      if (isElementVisible(document.querySelector('id'))) {
+        console.log('Visible');
+      } else {
+        console.log('Not visible');
+      }
+    }
+    toggleVisibility();
+
+    /*
+    PROBLEM 4: Create a function component called createForm that creates a simple HTML form from the structure below. The function should take no parameters. The form should contain two input fields: one for the name (with the ID nameInput) and one for the email address (with the ID emailInput). 
     
-     /* 
-    PROBLEM 3: Create a function component called toggleVisibility that toggles the visibility of an HTML element. The function should take the element's id as its only parameter. If the element is currently visible, the function should hide it; if it is hidden, the function should make it visible.
+    STRETCH YOURSELF: Create another function called submitForm that checks if both fields are filled in and makes the form disappear once the submit button is clicked. 
+    
+    HINT: You may want to use some components that you created earlier.
+ 
+    html structure:
+    <form>
+  <label for="nameInput">Name:</label>
+  <input type="text" id="nameInput">
+  
+  <label for="emailInput">Email:</label>
+  <input type="email" id="emailInput">
+  
+  <button type="submit">Submit</button>
+</form>
+ 
     */
-
-    //ENTER YOUR CODE HERE
-
-     /*
-     PROBLEM 4: Create a function component called createForm that creates a simple HTML form from the structure below. The function should take no parameters. The form should contain two input fields: one for the name (with the ID nameInput) and one for the email address (with the ID emailInput). 
-     
-     STRETCH YOURSELF: Create another function called submitForm that checks if both fields are filled in and makes the form disappear once the submit button is clicked. 
-     
-     HINT: You may want to use some components that you created earlier.
- 
-     html structure:
-     <form>
-   <label for="nameInput">Name:</label>
-   <input type="text" id="nameInput">
-   
-   <label for="emailInput">Email:</label>
-   <input type="email" id="emailInput">
-   
-   <button type="submit">Submit</button>
- </form>
- 
-     */
 
     //ENTER YOUR CODE HERE
 
@@ -54,24 +92,27 @@
      PROBLEM 5 (DEBUGGING): The following code is intended to change the background color of a paragraph when the mouse hovers over it. However, the background color does not change as expected when the code is executed. Identify and fix the bug to make the hover effect work correctly.
      */
 
-        const myParagraph = document.getElementById('myParagraph');
+    const myParagraph = document.getElementById('myParagraph');
 
-        myParagraph.addEventListener('mouseover', function () {
-          myParagraph.classList.add('highlight');
-        });
+    myParagraph.addEventListener('mouseover', function () {
+      myParagraph.classList.add('highlight');
+    });
 
-        myParagraph.addEventListener('mouseout', function () {
-          myParagraph.classList.remove('highlight');
-        });
-    
-  </script> 
-  <section style="border: 2px solid blue; border-radius: 5px; padding: 10px; box-shadow: 5px 3px 3px orange; margin-top: 20px;">
+    myParagraph.addEventListener('mouseout', function () {
+      myParagraph.classList.remove('highlight');
+    });
+
+  </script>
+  <section
+    style="border: 2px solid blue; border-radius: 5px; padding: 10px; box-shadow: 5px 3px 3px orange; margin-top: 20px;">
     <h3>About The Solutions</h3>
     <p>
-    PLEASE READ: To access the solutions to these practice problems, click the "index (solution).html" file on the left-hand side of the Replit website, under "Files".  You can try each solution by copying it into your "index.html" file and clicking "Run". 
+      PLEASE READ: To access the solutions to these practice problems, click the "index (solution).html" file on the
+      left-hand side of the Replit website, under "Files". You can try each solution by copying it into your
+      "index.html" file and clicking "Run".
       <br></br>
     <h4>Remember to please try the
-    practice problems first before looking at the solutions.</h4>
+      practice problems first before looking at the solutions.</h4>
     </p>
   </section>
 </body>
