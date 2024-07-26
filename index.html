@@ -64,7 +64,7 @@
         console.log('Not visible');
       }
     }
-    toggleVisibility();
+    toggleVisibility(1);
 
     /*
     PROBLEM 4: Create a function component called createForm that creates a simple HTML form from the structure below. The function should take no parameters. The form should contain two input fields: one for the name (with the ID nameInput) and one for the email address (with the ID emailInput). 
@@ -86,7 +86,28 @@
  
     */
 
-    //ENTER YOUR CODE HERE
+    function createForm(name, email) {
+      const form = document.createElement('form');
+
+      name = document.createElement('label');
+      name.innerText = 'Name:';
+      name.id = 'nameInput';
+      name.type = 'text';
+      form.appendChild(name);
+
+      email = document.createElement('label');
+      email.innerText = 'Email:';
+      email.id = 'emailInput';
+      email.type = 'email';
+      form.appendChild(email);
+
+      const submitButton = document.createElement('button');
+      submitButton.type = 'submit';
+      form.appendChild(submitButton);
+
+      return form;
+    }
+    createForm('test', 'test@test.com');
 
     /* 
      PROBLEM 5 (DEBUGGING): The following code is intended to change the background color of a paragraph when the mouse hovers over it. However, the background color does not change as expected when the code is executed. Identify and fix the bug to make the hover effect work correctly.
