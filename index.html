@@ -56,15 +56,21 @@
     /* 
    PROBLEM 3: Create a function component called toggleVisibility that toggles the visibility of an HTML element. The function should take the element's id as its only parameter. If the element is currently visible, the function should hide it; if it is hidden, the function should make it visible.
    */
+    function isElementVisible(element) {
+      const displayStyle = window.getComputedStyle(element).display; // style applied after CSS rules process
+      return displayStyle !== 'none' && element.offsetParent !== null; // check if parent element positioned in document
+    }
 
     function toggleVisibility(id) {
-      if (isElementVisible(document.querySelector('id'))) {
-        console.log('Visible');
+      const element = document.querySelector('#id');
+
+      if (isElementVisible(element)) {
+        element.style.display = 'none'; // hide
       } else {
-        console.log('Not visible');
+        element.style.display = 'block'; // show
       }
     }
-    toggleVisibility(1);
+    toggleVisibility();
 
     /*
     PROBLEM 4: Create a function component called createForm that creates a simple HTML form from the structure below. The function should take no parameters. The form should contain two input fields: one for the name (with the ID nameInput) and one for the email address (with the ID emailInput). 
@@ -113,14 +119,18 @@
      PROBLEM 5 (DEBUGGING): The following code is intended to change the background color of a paragraph when the mouse hovers over it. However, the background color does not change as expected when the code is executed. Identify and fix the bug to make the hover effect work correctly.
      */
 
-    const myParagraph = document.getElementById('myParagraph');
+    document.addEventListener('DOMContentLoaded', function () {
+      const myParagraph = document.getElementById('myParagraph');
 
-    myParagraph.addEventListener('mouseover', function () {
-      myParagraph.classList.add('highlight');
-    });
+      if (myParagraph) {
+        myParagraph.addEventListener('mouseover', function () {
+          myParagraph.classList.add('highlight');
+        });
 
-    myParagraph.addEventListener('mouseout', function () {
-      myParagraph.classList.remove('highlight');
+        myParagraph.addEventListener('mouseout', function () {
+          myParagraph.classList.remove('highlight');
+        });
+      }
     });
 
   </script>
